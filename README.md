@@ -1,85 +1,53 @@
-# Evaluation Node
+# 📊 Evaluation Node
 
-An employee evaluation application with a React frontend and a Node.js/Express backend backed by MongoDB.
+> Employee evaluation platform with a React frontend and a Node.js/Express backend backed by MongoDB.
 
-## Project structure
+![Node.js](https://img.shields.io/badge/Node.js-18+-green)
+![Express](https://img.shields.io/badge/Express-4.x-lightgrey)
+![MongoDB](https://img.shields.io/badge/MongoDB-6.x-brightgreen)
+![React](https://img.shields.io/badge/React-18-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-- `backend/` - Express API, MongoDB models, authentication, evaluation routes, and uploaded files.
-- `my-app/` - React frontend built with Create React App, Redux Toolkit, Bootstrap, and Axios.
+---
 
-## Requirements
+## 📌 Overview
 
-- Node.js 18 or newer
-- npm
-- MongoDB, either locally or through MongoDB Atlas
+**Evaluation Node** is a full-stack employee evaluation system that supports **two evaluation flows**:
 
-## Configuration
+1. **Self-Assessment (Internal)** — the employee rates themselves.
+2. **Manager Review (External)** — the direct manager rates the employee.
 
-Create or update `backend/.env` with the following values:
+Both evaluations are stored separately and linked together, allowing comparison between self-perception and managerial assessment. The system includes role-based access (admin, manager, employee), JWT authentication, and a clean MongoDB schema with automatic score computation.
 
-```env
-MONGO_URI=your-mongodb-connection-string
-JWT_SECRET=your-secret-key
-PORT=3700
-```
+---
 
-Keep secrets out of source control. Use a local environment file for development.
+## 🎯 Problem It Solves
 
-## Installation
+Traditional performance reviews are often:
 
-Install dependencies for both applications:
+- Manual — scattered across spreadsheets and emails
+- Biased — no structured comparison between self and manager views
+- Slow — weeks of back-and-forth before results are ready
+- Untrackable — no history, no audit trail
 
-```bash
-cd backend
-npm install
+**Evaluation Node** delivers:
 
-cd ../my-app
-npm install
-```
+- ⚡ Structured evaluation cycles
+- ⚖️ Separate self + manager assessments for comparison
+- 🎯 Automatic score computation (0–100 scale)
+- 🔒 JWT-based authentication with role-based access
+- 📜 Full history per employee per period
 
-## Running the project
+---
 
-Start the backend in one terminal:
+## 👥 Roles & Permissions
 
-```bash
-cd backend
-node server.js
-```
+| Role | Permissions |
+|------|-------------|
+| **Admin** | Full system access: manage users, questions, and evaluations |
+| **Manager** | Evaluate direct reports, view team results |
+| **Employee** | Complete self-assessment, view own results |
 
-The API is available at `http://localhost:3700`.
+---
 
-Start the React frontend in another terminal:
-
-```bash
-cd my-app
-npm start
-```
-
-The frontend opens at `http://localhost:3000`.
-
-## Main API areas
-
-- `GET /` - backend health message
-- `/users` - user registration, login, and user operations
-- `/evaluation` - evaluation-related operations
-- `GET /uploads/<file>` - access uploaded files
-
-## Production build
-
-Create a production build of the frontend with:
-
-```bash
-cd my-app
-npm run build
-```
-
-## Testing
-
-The frontend test command is:
-
-```bash
-cd my-app
-npm test
-```
-
-The backend currently does not define automated tests.
+## 🏗️ Project Structure
